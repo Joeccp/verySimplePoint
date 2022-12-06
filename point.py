@@ -6,6 +6,15 @@ Simple class for points.
 All rights reserved.
 """
 
+
+#  ██████╗  ██████╗ ██╗███╗   ██╗████████╗
+#  ██╔══██╗██╔═══██╗██║████╗  ██║╚══██╔══╝
+#  ██████╔╝██║   ██║██║██╔██╗ ██║   ██║
+#  ██╔═══╝ ██║   ██║██║██║╚██╗██║   ██║
+#  ██║     ╚██████╔╝██║██║ ╚████║   ██║
+#  ╚═╝      ╚═════╝ ╚═╝╚═╝  ╚═══╝   ╚═╝
+
+
 #  (C) Copyright 2022 Joe Chau.
 #  All rights reserved.
 #
@@ -28,14 +37,6 @@ All rights reserved.
 #  Except as contained in this notice, the name of Joe Chau shall not be used in advertising or
 #  otherwise to promote the sale, use or other dealings in this Software without prior written
 #  authorization from the Joe Chau.
-
-
-#  ██████╗  ██████╗ ██╗███╗   ██╗████████╗
-#  ██╔══██╗██╔═══██╗██║████╗  ██║╚══██╔══╝
-#  ██████╔╝██║   ██║██║██╔██╗ ██║   ██║
-#  ██╔═══╝ ██║   ██║██║██║╚██╗██║   ██║
-#  ██║     ╚██████╔╝██║██║ ╚████║   ██║
-#  ╚═╝      ╚═════╝ ╚═╝╚═╝  ╚═══╝   ╚═╝
 
 
 from typing import *
@@ -162,6 +163,7 @@ class Point:
 			raise TypeError(f"Cannot compare Point with {other.__class__.__name__}")
 	
 	def createOriginPoint() -> 'Point':
+		# `self` argument OMITTED ON PURPOSE
 		"""Create an origin point. Call this method from the class directly."""
 		return Point(0, 0)
 	
@@ -220,13 +222,14 @@ class Point:
 	def absoluteAreaWithOrigin(self) -> int | float:
 		return abs(self.x * self.y)
 	
-	def angleFromSelf(self, other):
+	def angleFromSelf(self, other) -> int | float:
 		from math import atan2, pi
 		angle = atan2(self.y - other.y, self.x - other.x)
 		if angle < 0:
 			angle += 2 * pi
 		result: float  # Angle in radian
 		result: float = angle * 180 / pi  # Angle in degree
+		if angle.is_integer(): angle = int(angle)
 		return result
 
 
