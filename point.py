@@ -224,7 +224,8 @@ class Point:
 	
 	def angleFromSelf(self, other) -> int | float:
 		# https://stackoverflow.com/questions/74682389/find-angle-in-degrees-of-a-point-from-another-point
-		# Credit to https://stackoverflow.com/users/7121783/om222o
+		# Credits to OM222O https://stackoverflow.com/users/7121783/om222o
+		# Also thanks for the explanation from Tim Roberts https://stackoverflow.com/users/1883316/tim-roberts
 		from math import atan2, pi
 		angle = atan2(self.y - other.y, self.x - other.x)
 		if angle < 0:
