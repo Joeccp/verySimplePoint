@@ -232,6 +232,53 @@ class Point:
 		if angle.is_integer(): angle = int(angle)
 		return result
 
+	def __bool__(self) -> bool:
+		"""True if not an origin"""
+		return self != (0, 0)
 
+	def __abs__(self) -> 'Point':
+		return Point(abs(self.x), abs(self.y))
+	
+	def turnAbsolute(self) -> _NoneType:
+		self.x = abs(self.x)
+		self.y = abs(self.y)
+
+	def __complex__(self) -> complex:
+		return complex(self.x, self.y)
+		
+	def __len__(self) -> int:
+		"""Return the value of X-Coordinate"""
+		return self.x
+
+	def __getitem__(self, item) -> int:
+		if item in ('x', 'X'):
+			return self.x
+		elif item in ('y', 'Y'):
+			return self.y
+		else:
+			raise KeyError(f"Point has no such key: {item}")
+		
+	def __setitem__(self, key, value) -> None:
+		if value in ('x', 'X'):
+			self.x = value
+		elif value in ('y', 'Y'):
+			self.y = value
+		else:
+			raise KeyError(f"Point has no such key: {item}")
+
+	def __reversed__(self) -> 'Point':
+		return Point(self.y, self.x)
+	
+	def reverse(self) -> None:
+		(self.x, self.y) = (self.y, self.x)
+		
+	def __iter__(self):
+		yield self.x
+		yield self.y
+		
+	def __contains__(self, item) -> bool:
+		return item in (self.x, self.y)
+	
+	
 if __name__ == '__main__':
-	print(Point(3,0).distance(Point(0,4)))
+	pass
