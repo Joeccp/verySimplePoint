@@ -219,6 +219,15 @@ class Point:
 	@property
 	def absoluteAreaWithOrigin(self) -> int | float:
 		return abs(self.x * self.y)
+	
+	def angleFromSelf(self, other):
+		from math import atan2, pi
+		angle = atan2(self.y - other.y, self.x - other.x)
+		if angle < 0:
+			angle += 2 * pi
+		result: float  # Angle in radian
+		result: float = angle * 180 / pi  # Angle in degree
+		return result
 
 
 if __name__ == '__main__':
