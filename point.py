@@ -44,6 +44,10 @@ from typing import *
 __all__ = ["Point"]
 __doc__ = "Simple class for points."
 
+__author__ = "Joe Chau"
+__copyright__ = "(C) Copyright 2022 Joe Chau"
+__email__ = "lmcs121005@gmail.com"
+
 _NoneType = type(None)  # NoneType
 
 
