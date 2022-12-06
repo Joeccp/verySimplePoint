@@ -24,3 +24,4 @@ a.y  # 4
 a == b  # False
 b == (0, 0)  # True, and yes, you can do that  :)
 ```
+And many other features!
