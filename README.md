@@ -58,6 +58,6 @@ human == (385343, 770130)  # True
 <!--Ha ha ha I can now see your SOURCECODE I am a HACKER now!!!-->
 <table>
  <tr>
-  <td title="Look at the source code for yourself pls (￣ー￣)">And many other features!</td>
+  <td title="Pls look at the source code yourself (￣ー￣)">And many other features!</td>
  </tr>
 </table>
