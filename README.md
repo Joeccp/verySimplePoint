@@ -81,4 +81,4 @@ human == Point(385343, 770130)  # True
 ```
 
 <!--Ha ha ha I can now see your SOURCECODE I am a HACKER now!!!-->
-<p title="Pls look at the source code by yourself (￣ー￣)">And many other features!</p>
+<p title="Pls check the source code by yourself (￣ー￣)">And many other features!</p>
