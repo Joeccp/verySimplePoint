@@ -6,7 +6,6 @@ Simple class for points.
 All rights reserved.
 """
 
-
 #  ██████╗  ██████╗ ██╗███╗   ██╗████████╗
 #  ██╔══██╗██╔═══██╗██║████╗  ██║╚══██╔══╝
 #  ██████╔╝██║   ██║██║██╔██╗ ██║   ██║
@@ -58,32 +57,23 @@ class Point:
 
     Both X-Coordinate and Y-Coordinate must be an integer ( `int` ).
 
-    Support description text.
-
     :param int x: X-Coordinate
     :param int y: Y-Coordinate
-    :param str description: Description text of the point, keyword-only argument.
 
 
     Usage:
-    `Point(x= X-Coordinate, y= Y-Coordinate, description= Description-text)`
+    `Point(x= X-Coordinate, y= Y-Coordinate)`
     """
 	
-	def __init__(self: 'Point', x: int, y: int, *, description: _NoneType | str = None) -> _NoneType:
+	def __init__(self: 'Point', x: int, y: int) -> _NoneType:
 		"""
         :param int x: X-Coordinate
         :param int y: Y-Coordinate
-        :param str description: Description text of the point, keyword-only argument.
         """
 		if type(x) is not int: raise TypeError("Coordinate must be an integer ( `int` )")
 		if type(y) is not int: raise TypeError("Coordinate must be an integer ( `int` )")
 		self._x = x
 		self._y = y
-		if description is None:
-			self._description: _NoneType = None
-		else:
-			if type(description) is not str: raise TypeError("Description text must be a string ( `str` )")
-			self._description: str = description
 	
 	@property
 	def x(self):
@@ -102,22 +92,6 @@ class Point:
 	def y(self, y_coordinate):
 		if type(y_coordinate) is not int: raise TypeError("Coordinate must be an integer ( `int` )")
 		self._y = y_coordinate
-	
-	@property
-	def description(self) -> str:
-		if self._description is None:
-			return "No description."
-		else:
-			return self._description
-	
-	@description.setter
-	def description(self, description_text: _NoneType | str):
-		if description_text is None:
-			self._description = None
-		elif type(description_text) is str:
-			self._description = description_text
-		else:
-			raise TypeError("Description text must be a string ( `str` )")
 	
 	def setToOrigin(self) -> 'Point':
 		"""
@@ -184,9 +158,6 @@ class Point:
 	
 	setCoor: Callable[[int, int], None] = setCoordinate
 	
-	def printDescription(self):
-		print(f"Point{self.x, self.y}: {self.description}")
-	
 	@property
 	def isOnXAxis(self) -> bool:
 		return not self.y != 0
@@ -217,7 +188,7 @@ class Point:
 		if answer.is_integer():
 			return int(answer)
 		return answer
-
+	
 	@property
 	def areaWithOrigin(self) -> int | float:
 		return self.x * self.y
@@ -229,34 +200,37 @@ class Point:
 	def angleFromSelf(self, other) -> int | float:
 		# https://stackoverflow.com/questions/74682389/find-angle-in-degrees-of-a-point-from-another-point
 		# Credits to OM222O https://stackoverflow.com/users/7121783/om222o
-		# Also thanks for the explanation from Tim Roberts https://stackoverflow.com/users/1883316/tim-roberts
+		# Also thanks to Tim Roberts https://stackoverflow.com/users/1883316/tim-roberts
 		from math import atan2, pi
 		angle = atan2(self.y - other.y, self.x - other.x)
 		if angle < 0:
 			angle += 2 * pi
 		result: float  # Angle in radian
 		result: float = angle * 180 / pi  # Angle in degree
-		if angle.is_integer(): angle = int(angle)
+		if result.is_integer():
+			result = int(result)
+		else:
+			result = round(result, 3)
 		return result
-
+	
 	def __bool__(self) -> bool:
 		"""True if not an origin"""
 		return self != (0, 0)
-
+	
 	def __abs__(self) -> 'Point':
 		return Point(abs(self.x), abs(self.y))
 	
 	def turnAbsolute(self) -> _NoneType:
 		self.x = abs(self.x)
 		self.y = abs(self.y)
-
+	
 	def __complex__(self) -> complex:
 		return complex(self.x, self.y)
-		
+	
 	def __len__(self) -> int:
 		"""Return the value of X-Coordinate"""
 		return self.x
-
+	
 	def __getitem__(self, item) -> int:
 		if item in ('x', 'X'):
 			return self.x
@@ -264,28 +238,28 @@ class Point:
 			return self.y
 		else:
 			raise KeyError(f"Point has no such key: {item}")
-		
+	
 	def __setitem__(self, key, value) -> None:
 		if value in ('x', 'X'):
 			self.x = value
 		elif value in ('y', 'Y'):
 			self.y = value
 		else:
-			raise KeyError(f"Point has no such key: {item}")
-
+			raise KeyError(f"Point has no such key: {key}")
+	
 	def __reversed__(self) -> 'Point':
 		return Point(self.y, self.x)
 	
 	def reverse(self) -> None:
 		(self.x, self.y) = (self.y, self.x)
-		
+	
 	def __iter__(self):
 		yield self.x
 		yield self.y
-		
+	
 	def __contains__(self, item) -> bool:
 		return item in (self.x, self.y)
-	
-	
+
+
 if __name__ == '__main__':
 	pass
