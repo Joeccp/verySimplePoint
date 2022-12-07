@@ -37,7 +37,7 @@ b = Point(0, 0)
 a.x  # 3
 a.y  # 4
 ```
-[BUT WHAT IF I DON't UNDERSTAND? 👆🏻](https://youtu.be/VYMdlCEDYvo)
+[BUT WHAT IF I DON'T UNDERSTAND? 👆🏻](https://youtu.be/VYMdlCEDYvo)
 
 <br/>
 
