@@ -20,8 +20,8 @@ This module is **not** perfect, but it will be there when you need it.
 
 ## Why NOT this module?
 
-Because the X and Y Coordinate can only be integers (+ve/0/-ve).
-No float, then no floating point trouble(ﾟ∀ﾟ).
+Because the X and Y Coordinate can only be integers (+ve/0/-ve), sorry.
+No float, then no floating point trouble! (ﾟ∀ﾟ)
 
 
 
