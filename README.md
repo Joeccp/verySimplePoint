@@ -36,6 +36,7 @@ b = Point(0, 0)
 
 a.x  # 3
 a.y  # 4
+a.distance(b). # 5
 ```
 [BUT WHAT IF I DON'T UNDERSTAND? 👆🏻](https://youtu.be/VYMdlCEDYvo)
 
