@@ -66,6 +66,7 @@ str(a) == "(3, 4)"  # True
 len(a)  # 3, which is the X-Coordinate
 c = Point(-6, -9)
 abs(c)  # (6, 9)
+complex(a)  # 3+4j, which is usually presented by 3+4i
 ```
 
 ```python
